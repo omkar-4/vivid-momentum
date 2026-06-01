@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vivid Momentum</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/icons/appIcon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <div id="neutralinoapp" class="neutralinoapp">
+    <div id="workarea" class="workarea">
+      <header class="header">
+        <div data-context="header_first-row">
+          <div class="title-newentrybtn-group">
+            <h1 class="header-title">Projects</h1>
+
+            <button type="button" id="new-entry-btn" class="new-entry-btn" title="Add New Entry">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-plus-icon lucide-plus">
+                <path d="M5 12h14" />
+                <path d="M12 5v14" />
+              </svg>
+            </button>
+          </div>
+
+          <div data-context="filter_filter-options" class="filter-wrapper">
+            <button type="button" class="filter-btn" id="filter-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-funnel-icon lucide-funnel">
+                <path
+                  d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
+              </svg>
+              <span class="filter-btn-label">Filter</span>
+            </button>
+
+            <div class="filter-options-dialog" id="filter-options-dialog" style="display: none;">
+              <label class="filter-row opt-all">
+                <span>all</span>
+                <input type="checkbox" value="all" checked />
+              </label>
+              <hr />
+              <label class="filter-row">
+                <span>todo</span>
+                <input type="checkbox" value="todo" />
+              </label>
+              <label class="filter-row">
+                <span>ongoing</span>
+                <input type="checkbox" value="ongoing" />
+              </label>
+              <label class="filter-row">
+                <span>pending</span>
+                <input type="checkbox" value="pending" />
+              </label>
+              <label class="filter-row">
+                <span>done</span>
+                <input type="checkbox" value="done" />
+              </label>
+              <label class="filter-row">
+                <span>launched</span>
+                <input type="checkbox" value="launched" />
+              </label>
+              <button type="button" class="filter-apply-btn" id="filter-apply-btn">Apply</button>
+            </div>
+          </div>
+        </div>
+
+        <div data-context="header_last-row">
+          <div id="total-count" class="total-count">
+            Total Projects: 8
+          </div>
+        </div>
+      </header>
+
+      <div id="entries" class="entries">
+      </div>
+
+      <div id="confirm-deletion-dialog" class="confirm-deletion-dialog">
+        <p>Are you sure you want to delete this?</p>
+        <div>
+          <button type="button">Yes</button>
+          <button type="button">No</button>
+        </div>
+      </div>
+
+      <div id="create-entry-dialog" class="create-entry-dialog">
+
+        <button type="button" id="close-entry-dialog-btn" data-action="close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-x-icon lucide-x">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+
+        <form id="entry-form" class="entry-form" autocomplete="off">
+          <h1 class="entry-form-heading">Create New Entry</h1>
+
+          <!--Project Title-->
+          <div class="form-group">
+            <label for="project-title-input">Project Title</label>
+            <input class="form-input" type="text" id="project-title-input" name="name"
+              placeholder="type your project title" required />
+          </div>
+
+          <!--Progress-->
+          <div class="form-group">
+            <label for="progress-input">Progress</label>
+            <textarea placeholder="comment on your progress.." class="form-textarea" name="progress" id="progress-input"
+              required></textarea>
+          </div>
+
+          <!--Status Dropdown-->
+          <div class="form-group status-container">
+            <label>Status</label>
+            <div class="custom-dropdown" id="status-dropdown">
+              <div class="dropdown-trigger" id="status-trigger" data-value="todo"
+                style="display: flex; gap: 2px; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down">
+                  <path d="m7 15 5 5 5-5" />
+                  <path d="m7 9 5-5 5 5" />
+                </svg>
+                <span class="dropdown-text-label">
+                  todo
+                </span>
+              </div>
+              <div class="dropdown-menu" id="status-menu">
+                <div class="dropdown-item active" data-option="todo">
+                  todo
+                </div>
+                <div class="dropdown-item" data-option="ongoing">ongoing</div>
+                <div class="dropdown-item" data-option="pending">pending</div>
+                <div class="dropdown-item" data-option="done">done</div>
+                <div class="dropdown-item" data-option="launched">launched</div>
+              </div>
+            </div>
+          </div>
+
+          <!--Category-->
+          <div class="form-group">
+            <label for="category-input">Category</label>
+            <input class="form-input" type="text" id="category-input" name="category"
+              placeholder="eg. website, youtube video" required />
+          </div>
+
+          <!--Shortcuts-->
+          <div class="form-group">
+            <div class="shortcut-header-group form-group">
+              <label>Shortcuts</label>
+              <button type="button" id="add-shortcut-btn" class="add-shortcut-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-plus-icon lucide-plus">
+                  <path d="M5 12h14" />
+                  <path d="M12 5v14" />
+                </svg>
+              </button>
+            </div>
+            <!-- JS appends shortcut fields here -->
+            <div id="shortcuts-list-container"></div>
+          </div>
+
+          <button type="submit" id="submit-entry-btn" class="create-entry-btn">Create Entry</button>
+        </form>
+      </div>
+
+      <!--Shortcut Fields Template-->
+      <template id="shortcut-field-template">
+        <div class="shortcut-fields-row" data-index="">
+          <div class="field-wrap">
+            <label>Shortcut Name</label>
+            <input type="text" class="shortcut-name" placeholder="name your shortcut" required />
+          </div>
+          <div class="field-wrap">
+            <label>Shell Command</label>
+            <input type="text" class="shortcut-command" placeholder="explorer ./path.. or path_to_app.exe" required />
+          </div>
+          <button type="button" class="remove-shortcut-btn delete-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-trash-icon lucide-trash">
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+              <path d="M3 6h18" />
+              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+            </svg>
+          </button>
+        </div>
+      </template>
+
+      <template id="entry-template">
+        <div class="entry" data-id="">
+
+          <!--<button data-context="entry-chevron" type="button" class="entry-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-chevron-right-icon lucide-chevron-right">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>-->
+
+          <div class="entry_first-row">
+            <h3 class="project-title-target"></h3>
+            <div class="entry_fr-right">
+              <span class="status status-target"></span>
+              <span class="category category-target"></span>
+              <div>
+                <button class="edit-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-square-pen-icon lucide-square-pen">
+                    <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path
+                      d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
+                  </svg>
+                </button>
+                <button class="del-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-trash2-icon lucide-trash-2">
+                    <path d="M10 11v6" />
+                    <path d="M14 11v6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                    <path d="M3 6h18" />
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry_middle-row">
+            <span>progress :</span>
+            <p class="progress-target">
+            </p>
+          </div>
+
+          <div class="entry_last-row shortcuts-target">
+          </div>
+        </div>
+      </template>
+
+    </div>
+  </div>
+
+  <script src="/js/neutralino.js"></script>
+  <script src="/platform/main.js"></script>
+  <script src="/platform/updater.js"></script>
+  <script type="module" src="/core/app.js"></script>
+</body>
+
+</html>

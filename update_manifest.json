@@ -1,0 +1,9 @@
+{
+  "applicationId": "com.omkar.vividmomentum",
+  "version": "1.0.0",
+  "resourcesURL": "https://raw.githubusercontent.com/omkar-4/vivid-momentum/main/dist/resources.neu",
+  
+  "data": {
+    "whatsnew": "Added project tracking functionality"
+  }
+}

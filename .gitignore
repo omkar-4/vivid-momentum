@@ -1,0 +1,38 @@
+# Developer tools' files
+.lite_workspace.lua
+
+# Neutralinojs binaries and builds
+/bin
+/dist/*
+!/dist/resources.neu
+/build-scripts
+/build-scripts/
+/.tmp
+
+# Neutralinojs client (minified)
+neutralino.js
+neutralino.d.ts
+
+# Neutralinojs app files
+update.json
+.storage
+
+# personal
+scratchpad.md
+resources/sqlite
+/landing
+/docs
+
+# Neutralino build outputs (The actual app binaries you distribute)
+*.exe
+*.app
+myapp-release.zip
+
+# Local environment and log files
+.env
+.env.*
+*.log
+.DS_Store
+
+projects.json
+neutralino.log
