@@ -1,6 +1,6 @@
 async function updater() {
   try {
-    let url = "https://raw.githubusercontent.com/omkar-4/vivid-momentum/main/update_maifest.json";
+    let url = "https://raw.githubusercontent.com/omkar-4/vivid-momentum/main/update_manifest.json";
     let manifest = await Neutralino.updator.checkForUpdates(url);
 
     if (manifest.version != NL_APPVERSION) {

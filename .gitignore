@@ -3,8 +3,12 @@
 
 # Neutralinojs binaries and builds
 /bin
+
 /dist/*
-!/dist/resources.neu
+!/dist/vivid-momentum/
+/dist/vivid-momentum/*
+!/dist/vivid-momentum/resources.neu
+
 /build-scripts
 /build-scripts/
 /.tmp
