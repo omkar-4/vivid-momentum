@@ -24,7 +24,8 @@
     "os.*",
     "debug.log",
     "window.*",
-    "filesystem.*"
+    "filesystem.*",
+    "updater.*"
   ],
   "globalVariables": {
     "TEST1": "Hello",
@@ -41,7 +42,7 @@
   },
   "modes": {
     "window": {
-      "title": "vivid-momentum",
+      "title": "Vivid Momentum",
       "width": 800,
       "height": 600,
       "minWidth": 400,
