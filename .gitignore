@@ -20,6 +20,7 @@ neutralino.d.ts
 # Neutralinojs app files
 update.json
 .storage
+resources.neu
 
 # personal
 scratchpad.md

@@ -25,6 +25,7 @@ const statusCheckboxes = filterDialog.querySelectorAll('.filter-row:not(.opt-all
 
 console.log("NL_DATAPATH:", NL_DATAPATH);
 console.log("NL_PORT:", NL_PORT);
+console.log("NL_APPVERSION:", NL_APPVERSION);
 
 const renderProjectCard = (project) => {
   const clone = template.content.cloneNode(true);
