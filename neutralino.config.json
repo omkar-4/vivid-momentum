@@ -1,13 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
   "applicationId": "com.omkar.vividmomentum",
+  "applicationName": "Vivid Momentum",
+  "applicationIcon": "D:/MyStuff/1 Projects/Products/vivid-momentum/resources/icons/appIcon.ico",
   "version": "1.0.0",
   "defaultMode": "window",
   "port": 0,
   "documentRoot": "/resources/",
   "url": "/",
-  "dataLocation": "app",
-  "storageLocation": "app",
+  "dataLocation": "system",
+  "storageLocation": "system",
   "enableServer": true,
   "enableNativeAPI": true,
   "serverHeaders": {
@@ -49,9 +51,9 @@
       "minHeight": 300,
       "center": true,
       "fullScreen": false,
-      "alwaysOnTop": true,
+      "alwaysOnTop": false,
       "icon": "/resources/icons/appIcon.ico",
-      "enableInspector": true,
+      "enableInspector": false,
       "borderless": false,
       "maximize": false,
       "hidden": false,
@@ -97,11 +99,8 @@
       "architecture": [
         "x64"
       ],
-      "appName": "Vivid Momentum",
-      "appIcon": "resources/icons/appicon.ico",
-      "copyright": "Omkar Iyer, 2026, Neutralinojs and contributors",
-      "fileDescription": "A local Project Tracker app for Desktop",
-      "legalCopyright": "Omkar"
+      "appName": "vivid-momentum",
+      "appIcon": "/resources/icons/appicon.ico"
     }
   }
 }

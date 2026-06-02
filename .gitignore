@@ -27,6 +27,7 @@ scratchpad.md
 resources/sqlite
 /landing
 /docs
+/demo-video
 
 # Neutralino build outputs (The actual app binaries you distribute)
 *.exe

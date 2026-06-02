@@ -5,10 +5,13 @@ async function updater() {
       return;
     }
 
-    let url = "https://raw.githubusercontent.com/omkar-4/vivid-momentum/main/update_manifest.json";
+    // add date now to trick browser to make fresh request every time
+    // and not use cached results which causes infinite loop of version mismatch and install + reload app cycle
+    let url = "https://raw.githubusercontent.com/omkar-4/vivid-momentum/main/update_manifest.json?v=" + Date.now();
     let manifest = await Neutralino.updater.checkForUpdates(url);
 
     if (manifest.version != NL_APPVERSION) {
+      console.log(`A new version is available!, Latest version: ${manifest.version}, Your version: ${NL_APPVERSION}`);
       await Neutralino.updater.install();
       await Neutralino.app.restartProcess();
     } else {

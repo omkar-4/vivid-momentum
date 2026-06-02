@@ -1,6 +1,6 @@
 import { sys } from "../api/api.js";
 
-sys.os.execCommand = async (command) => Neutralino.os.execCommand(command);
+sys.os.execCommand = async (command) => Neutralino.os.execCommand(command, { background: true });
 sys.fs.readFile = async (path) => Neutralino.filesystem.readFile(path);
 sys.fs.appendFile = async (path, data) =>
   await Neutralino.filesystem.appendFile(path, data);
